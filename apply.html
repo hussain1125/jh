@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css">
+</head>
+
+<body>
+
+    <nav class="w-full   h-56 sm:h-36 bg-[#014187] rounded-md">
+
+        <div
+            class="w-full min-h-24 bg-[#ca251c] text-white text-2xl  child-nav p-2 sm:flex sm:min-h-3 sm:p-0 sm:items-center sm:justify-between rounded-md">
+
+
+
+
+            <div class="text-white flex ml-3 items-center h-full gap-2 text-sm address mb-2">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Main Jhang Road Near Sabzi Mandi (Sahiwal)</p>
+
+            </div>
+
+            <div class="contact-parent sm:flex sm:items-center sm:-translate-x-5">
+
+
+                <div class="contact-phone flex ml-3 items-center h-full gap-2 mb-2 text-sm ">
+                    <i class="fa-solid fa-phone"></i>
+                    <div style="transform: translateY(3px);" class="phone">
+                        <p>048-6785312</p>
+                        <p>0331-7649871</p>
+                    </div>
+
+                </div>
+
+                <div class="contact-mail flex ml-3 items-center h-full gap-2 mb-2 text-sm ">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>pscprogress1214@gmail.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="second-bar flex items-center justify-center sm:relative ">
+
+            <div
+                class="logo-name flex items-center justify-center gap-4 text-white mt-1 sm:absolute sm:left-5 sm:top-1   ">
+
+                <div class="logo relative bottom-2 ">
+                    <img class="h-[7rem] w-[13rem] sm:h-24 sm:w-24" src="pgs.png" alt="">
+                </div>
+
+                <div class="name text-[23px] font-dm-serif tracking-wider mb-3">
+                    <p>THE PEDAGOGUE'S COLLEGE SAHIWAL</p>
+                </div>
+
+
+
+            </div>
+
+
+           
+
+        </div>
+
+
+    </nav>
+
+   
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 py-10">
+        <div class="bg-white shadow-xl rounded-lg w-full max-w-3xl p-8">
+            <!-- Header -->
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-800">Apply Online</h2>
+                <p class="text-gray-500 mt-2">Join our prestigious institution and embark on a journey of excellence!
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form class="mt-8 space-y-6" name="submit-to-google-sheet">
+                <!-- Name Input -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input name="Name" type="text" id="name" placeholder="Enter your full name"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        required>
+                </div>
+
+                <!-- Class Selection -->
+                <div>
+                    <label for="class" class="block text-sm font-medium text-gray-700">Class to Apply</label>
+                    <select name="Class" id="class"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        required>
+                        <option value="Select Class">Select class</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+
+                    </select>
+                </div>
+
+                <!-- Contact Number -->
+                <div>
+                    <label for="contact" class="block text-sm font-medium text-gray-700">Contact Number</label>
+                    <input name="Contact" type="tel" id="contact" placeholder="Enter your contact number"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        required>
+                </div>
+
+                <!-- Message (Optional) -->
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message (Optional)</label>
+                    <textarea name="Message" id="message" placeholder="Tell us why you're excited to join" rows="4"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+
+            <!-- Footer -->
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-500">
+                    By submitting, you agree to our <a href="#"
+                        class="text-blue-500 underline hover:text-blue-700">terms and conditions</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoZQCIIs6XjXyl5ugjiytl6pb706NceHduGzRBt_iQWW5F-yvLH7U1pcJMTEoD3OnmzA/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => alert('Success! Your application has been submitted.'))
+                .catch(error => alert('Error! Please try again.'))
+        })
+    </script>
+</body>
+
+</html>
